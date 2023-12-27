@@ -1,6 +1,7 @@
 import 'package:advanced/presentation/resources/assets_manager.dart';
 import 'package:advanced/presentation/resources/color_manager.dart';
 import 'package:advanced/presentation/resources/string_manager.dart';
+import 'package:advanced/presentation/resources/valuse_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -59,4 +60,33 @@ class SliderObject {
   String? image;
 
   SliderObject(this.title, this.subTitle, this.image);
+}
+class OnBoardingPage extends StatelessWidget {
+  const OnBoardingPage(this._sliderObject,{super.key});
+
+  final SliderObject _sliderObject;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+       const SizedBox(height: AppSize.s40,),
+        Padding(
+          padding: const EdgeInsets.all(AppPadding.p8),
+          child: Text("${_sliderObject.title}",
+          textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(AppPadding.p8),
+          child: Text("${_sliderObject.subTitle}",
+          textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+        ),
+        const SizedBox(height: AppSize.s60,),
+      ],
+    );
+  }
 }
